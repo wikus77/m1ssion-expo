@@ -13,7 +13,12 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.wikus77.m1ssionexpo",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      },
+      "buildNumber": "1.0.0"
     },
     "android": {
       "adaptiveIcon": {
@@ -27,6 +32,15 @@
     },
     "plugins": [
       "expo-font"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "90d952be-5bd4-4b50-bfb6-45b9ad5694ce"
+      }
+    },
+    "owner": "wikus77",
+    "cli": {
+      "appVersionSource": "remote"
+    }
   }
 }
