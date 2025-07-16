@@ -38,5 +38,6 @@ export default {
   cli: {
     appVersionSource: "remote"
   },
-  plugins: ["expo-font"]
+  plugins: ["expo-font"],
+  jsEngine: "jsc"
 };
