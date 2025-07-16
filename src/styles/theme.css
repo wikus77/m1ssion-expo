@@ -1,0 +1,224 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* PALETTE & ROOT VARS */
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 196 100% 50%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 270 95% 65%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 70%;
+    --accent: 39 100% 50%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 65% 30%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 196 100% 50%;
+    --radius: 0.7rem;
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 18%;
+    --muted: 0 0% 90%;
+    --muted-foreground: 0 0% 55%;
+    --popover: 0 0% 99%;
+    --popover-foreground: 0 0% 15%;
+    --border: 0 0% 60%;
+    --input: 0 0% 80%;
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 13%;
+    --primary: 196 100% 50%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 270 95% 65%;
+    --secondary-foreground: 0 0% 0%;
+    --accent: 39 100% 50%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 196 100% 50%;
+    --radius: 0.7rem;
+  }
+}
+
+/* Glass Effects - Updated to match landing page */
+.glass-card {
+  @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-lg rounded-lg;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 
+              inset 0 2px 3px rgba(255, 255, 255, 0.06);
+}
+
+/* Neon text effects - Made consistent with landing */
+.neon-text-cyan {
+  @apply text-[#00D1FF] font-bold;
+  text-shadow: 0 0 10px rgba(0, 209, 255, 0.6), 0 0 20px rgba(0, 209, 255, 0.4);
+}
+
+.neon-text-magenta {
+  @apply text-[#F059FF] font-bold;
+  text-shadow: 0 0 10px rgba(240, 89, 255, 0.6), 0 0 20px rgba(240, 89, 255, 0.4);
+}
+
+.neon-text-yellow {
+  @apply text-yellow-400 font-bold;
+  text-shadow: 0 0 10px rgba(250, 204, 21, 0.6), 0 0 20px rgba(250, 204, 21, 0.4);
+}
+
+/* Mission heading - Updated to match landing page */
+.mission-heading {
+  @apply text-[#00D1FF] text-3xl sm:text-5xl font-orbitron font-light mb-6;
+  text-shadow: 0 0 15px rgba(0, 209, 255, 0.6), 0 0 30px rgba(0, 209, 255, 0.3);
+  letter-spacing: 0.05em;
+}
+
+/* Button styles - Updated to match landing page */
+.neon-button-cyan {
+  @apply bg-gradient-to-r from-[#7B2EFF] to-[#00D1FF] text-white font-semibold px-6 py-3 rounded-full 
+         hover:shadow-[0_0_15px_rgba(0,209,255,0.6)] transition-all duration-300 hover:scale-105;
+}
+
+.neon-button-magenta {
+  @apply bg-gradient-to-r from-[#F059FF] to-[#7B2EFF] text-white font-semibold px-6 py-3 rounded-full 
+         hover:shadow-[0_0_15px_rgba(240,89,255,0.6)] transition-all duration-300 hover:scale-105;
+}
+
+.neon-button-yellow {
+  @apply bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-semibold px-6 py-3 rounded-full 
+         hover:shadow-[0_0_15px_rgba(250,204,21,0.6)] transition-all duration-300 hover:scale-105;
+}
+
+/* Glowing border - Updated to match landing page */
+.glow-border-cyan {
+  @apply border border-[#00D1FF]/60;
+  box-shadow: 0 0 10px rgba(0, 209, 255, 0.4), inset 0 0 5px rgba(0, 209, 255, 0.2);
+}
+
+.glow-border-magenta {
+  @apply border border-[#F059FF]/60;
+  box-shadow: 0 0 10px rgba(240, 89, 255, 0.4), inset 0 0 5px rgba(240, 89, 255, 0.2);
+}
+
+/* Animated horizontal lines */
+.horizontal-line {
+  @apply w-full h-[1px] bg-gradient-to-r from-transparent via-[#00D1FF]/30 to-transparent relative overflow-hidden;
+}
+
+.horizontal-line::after {
+  content: '';
+  @apply absolute w-full h-full bg-gradient-to-r from-transparent via-[#00D1FF] to-transparent;
+  animation: moveLight 2s linear infinite;
+}
+
+@keyframes moveLight {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Line glow effect for the bottom navigation and headers */
+.line-glow {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(to right, transparent, #00D1FF, #7B2EFF, transparent);
+  position: relative;
+  overflow: hidden;
+}
+
+.line-glow::after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  top: 0;
+  background: linear-gradient(to right, transparent, white, transparent);
+  animation: moveGlow 3s infinite ease-in-out;
+}
+
+@keyframes moveGlow {
+  0% { left: -50%; }
+  100% { left: 100%; }
+}
+
+/* Floating particles animation */
+@keyframes float-particle {
+  0% { transform: translateY(0) translateX(0); }
+  25% { transform: translateY(-10px) translateX(5px); }
+  50% { transform: translateY(0) translateX(10px); }
+  75% { transform: translateY(10px) translateX(5px); }
+  100% { transform: translateY(0) translateX(0); }
+}
+
+.floating-particle {
+  animation: float-particle 10s infinite ease-in-out;
+}
+
+/* Gradient text - Updated to match landing page */
+.gradient-text-cyan {
+  @apply bg-gradient-to-r from-[#00D1FF] to-blue-500 bg-clip-text text-transparent;
+  text-shadow: 0 0 2px rgba(0, 209, 255, 0.3);
+}
+
+.gradient-text-multi {
+  @apply bg-gradient-to-r from-[#00D1FF] via-[#7B2EFF] to-[#F059FF] bg-clip-text text-transparent;
+  text-shadow: 0 0 2px rgba(0, 209, 255, 0.3);
+}
+
+/* Page sections */
+.page-section {
+  @apply p-4 md:p-6 mb-8 glass-card;
+}
+
+.section-title {
+  @apply text-2xl font-bold mb-4 gradient-text-cyan;
+}
+
+/* Card styles */
+.feature-card {
+  @apply glass-card p-5 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1;
+}
+
+/* IT IS POSSIBLE motto */
+.mission-motto {
+  @apply text-xl sm:text-2xl text-yellow-400 font-orbitron font-light tracking-wider;
+  text-shadow: 0 0 15px rgba(250, 204, 21, 0.5), 0 0 30px rgba(250, 204, 21, 0.3);
+}
+
+/* Custom Form Controls */
+.form-control {
+  @apply rounded-lg bg-black/40 border border-white/10 py-2 px-4 outline-none focus:ring-1 focus:ring-[#00D1FF]/50 w-full;
+}
+
+/* Modern Card Layout */
+.modern-card {
+  @apply glass-card p-6 transform transition-transform duration-300 hover:-translate-y-1;
+}
+
+/* Top Section Styles */
+.top-section {
+  @apply mb-8 p-6 rounded-xl bg-gradient-to-br from-[#131524] to-black;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Content Area Styles */
+.content-area {
+  @apply p-6 rounded-xl bg-black/40 backdrop-blur-xl border border-white/10;
+}
+
+/* Image Container */
+.image-container {
+  @apply rounded-lg overflow-hidden border border-white/10;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}

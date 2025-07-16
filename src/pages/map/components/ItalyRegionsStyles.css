@@ -1,0 +1,171 @@
+
+/* Styles for Italy regions overlay */
+.italy-region {
+  fill: rgba(123, 46, 255, 0.1);
+  stroke: rgba(0, 209, 255, 0.5);
+  stroke-width: 1;
+  transition: all 0.3s ease;
+}
+
+.italy-region:hover {
+  fill: rgba(123, 46, 255, 0.3);
+  stroke: rgba(0, 209, 255, 0.8);
+  stroke-width: 2;
+}
+
+.italy-region.active {
+  fill: rgba(123, 46, 255, 0.5);
+  stroke: rgba(0, 209, 255, 1);
+  stroke-width: 2;
+}
+
+/* Map button style */
+.map-control-button {
+  @apply bg-gradient-to-r from-[#7B2EFF] to-[#00D1FF] text-white px-4 py-2 rounded-full shadow-lg;
+  transition: all 0.2s ease;
+}
+
+.map-control-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(0, 209, 255, 0.5);
+}
+
+.map-control-button.cancel {
+  @apply bg-gradient-to-r from-red-600 to-red-500;
+}
+
+/* Custom popup styles */
+.leaflet-popup-content-wrapper {
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  border: 1px solid rgba(0, 209, 255, 0.3);
+  border-radius: 12px;
+}
+
+.leaflet-popup-tip {
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(0, 209, 255, 0.3);
+}
+
+.point-popup label {
+  color: rgba(0, 209, 255, 0.9);
+  font-weight: 500;
+}
+
+.point-popup input,
+.point-popup textarea {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: black;
+}
+
+.point-popup input:focus,
+.point-popup textarea:focus {
+  border: 1px solid rgba(0, 209, 255, 0.6);
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 209, 255, 0.3);
+}
+
+/* Enhanced BUZZ Button styles */
+.buzz-button {
+  background: linear-gradient(90deg, #00cfff, #ff00cc, #7f00ff);
+  box-shadow: 0 0 15px 5px rgba(255, 0, 128, 0.4);
+  transition: transform 0.2s, box-shadow 0.3s;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  padding: 10px 20px;
+}
+
+.buzz-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px 8px rgba(255, 0, 128, 0.6);
+}
+
+.buzz-button:active {
+  transform: scale(0.98);
+}
+
+/* Neon marker styles */
+.neon-marker-icon {
+  filter: drop-shadow(0 0 8px #00f0ff) drop-shadow(0 0 16px rgba(0, 240, 255, 0.7));
+  animation: marker-pulse 2s infinite;
+}
+
+@keyframes marker-pulse {
+  0% {
+    filter: drop-shadow(0 0 5px #00f0ff) drop-shadow(0 0 10px rgba(0, 240, 255, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 10px #00f0ff) drop-shadow(0 0 20px rgba(0, 240, 255, 0.8));
+  }
+  100% {
+    filter: drop-shadow(0 0 5px #00f0ff) drop-shadow(0 0 10px rgba(0, 240, 255, 0.5));
+  }
+}
+
+/* M1SSION glass card enhancements for map sections */
+.m1ssion-glass-card {
+  border-radius: 24px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(123, 46, 255, 0.15);
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(123, 46, 255, 0.1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.m1ssion-glass-card:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to right, #00D1FF, #7B2EFF, #F059FF);
+  opacity: 0.8;
+}
+
+/* Note box styling */
+.note-box {
+  background: #0b0b0b;
+  border-radius: 24px;
+  padding: 16px;
+  color: white;
+  box-shadow: 0 0 6px rgba(0, 255, 255, 0.15);
+  border: 1px solid rgba(0, 255, 255, 0.15);
+}
+
+/* Map point styles */
+.map-point {
+  background: #0b0b0b;
+  border-radius: 24px;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  box-shadow: 0 0 6px rgba(0, 255, 255, 0.15);
+}
+
+/* Input text color fix */
+input, textarea {
+  color: white !important;
+}
+
+/* Map point marker animation */
+.marker-neon {
+  background-color: #00f0ff;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(0, 240, 255, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(0, 240, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 240, 255, 0); }
+}
+
+/* Popup input text color fix */
+.leaflet-popup-content input, 
+.leaflet-popup-content textarea {
+  color: black !important;
+}

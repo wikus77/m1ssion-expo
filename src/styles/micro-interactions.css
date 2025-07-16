@@ -1,0 +1,352 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  /* Pulsante con effetto di pressione */
+  .press-effect {
+    @apply transition-all duration-200 active:scale-95 hover:scale-[1.02];
+  }
+
+  /* Effetto di espansione menu */
+  .menu-expand {
+    @apply transition-all duration-300;
+  }
+  .menu-expand-enter {
+    @apply opacity-0 -translate-y-2;
+  }
+  .menu-expand-enter-active {
+    @apply opacity-100 translate-y-0;
+  }
+
+  /* Toggle switch personalizzato con animazione */
+  .toggle-slide {
+    @apply transition-transform duration-300 ease-in-out;
+  }
+  
+  /* Feedback visivo per interazioni */
+  .interaction-feedback {
+    @apply relative overflow-hidden;
+  }
+  .interaction-feedback::after {
+    content: '';
+    @apply absolute inset-0 bg-white/10 opacity-0 transition-opacity duration-200;
+  }
+  .interaction-feedback:active::after {
+    @apply opacity-100;
+  }
+
+  /* Effetto ripple per i click */
+  .ripple-effect {
+    @apply relative overflow-hidden;
+  }
+  .ripple {
+    @apply absolute bg-white/20 rounded-full 
+           animate-[ripple_0.6s_ease-in-out] opacity-0;
+  }
+
+  @keyframes ripple {
+    0% {
+      transform: scale(0);
+      opacity: 0.5;
+    }
+    100% {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+
+  /* Nuovi effetti per M1SSION */
+  .neon-button {
+    @apply relative overflow-hidden transition-all duration-300;
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+  }
+
+  .neon-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+  }
+
+  .neon-button:hover::before {
+    left: 100%;
+  }
+
+  .glow-hover {
+    @apply transition-all duration-300;
+  }
+
+  .glow-hover:hover {
+    filter: drop-shadow(0 0 8px rgba(0, 229, 255, 0.6));
+    transform: translateY(-2px);
+  }
+
+  .glow-blue {
+    filter: drop-shadow(0 0 5px rgba(0, 229, 255, 0.5));
+  }
+
+  .glow-purple {
+    filter: drop-shadow(0 0 5px rgba(255, 0, 255, 0.5));
+  }
+
+  .glow-yellow {
+    filter: drop-shadow(0 0 5px rgba(255, 193, 7, 0.5));
+  }
+  
+  /* WhatsApp-style AI button glow effect with yellow color */
+  .ai-button-glow {
+    animation: pulse-glow 3s infinite ease-in-out;
+    filter: drop-shadow(0 0 8px rgba(106, 0, 255, 0.3)) 
+            drop-shadow(0 0 12px rgba(0, 224, 255, 0.2));
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% {
+      transform: scale(1);
+      filter: drop-shadow(0 0 8px rgba(106, 0, 255, 0.3)) 
+              drop-shadow(0 0 12px rgba(0, 224, 255, 0.2));
+    }
+    50% {
+      transform: scale(1.03);
+      filter: drop-shadow(0 0 12px rgba(106, 0, 255, 0.4)) 
+              drop-shadow(0 0 16px rgba(0, 224, 255, 0.3));
+    }
+  }
+  
+  /* Floating animation for AI button */
+  .float-animation {
+    animation: float 4s infinite ease-in-out;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  /* Animation for rank changes */
+  .rank-up {
+    animation: rankChangeUp 2s ease-out;
+    color: #4ade80;
+  }
+  
+  .rank-down {
+    animation: rankChangeDown 2s ease-out;
+    color: #f87171;
+  }
+  
+  @keyframes rankChangeUp {
+    0%, 100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(-4px);
+      opacity: 0.8;
+    }
+  }
+  
+  @keyframes rankChangeDown {
+    0%, 100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(4px);
+      opacity: 0.8;
+    }
+  }
+  
+  /* Leaderboard position highlight */
+  .position-highlight {
+    @apply relative overflow-hidden;
+  }
+  .position-highlight::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 5px;
+    background: linear-gradient(90deg, rgba(155, 135, 245, 0.8) 0%, rgba(155, 135, 245, 0) 100%);
+    animation: highlightPulse 2s infinite ease-in-out;
+  }
+  
+  @keyframes highlightPulse {
+    0%, 100% {
+      opacity: 0.6;
+    }
+    50% {
+      opacity: 0.3;
+    }
+  }
+  
+  /* Trophy shine effect */
+  .trophy-shine {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .trophy-shine::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(45deg);
+    animation: trophyShine 3s infinite;
+  }
+  
+  @keyframes trophyShine {
+    0% {
+      transform: rotate(45deg) translateX(-100%);
+    }
+    15%, 100% {
+      transform: rotate(45deg) translateX(100%);
+    }
+  }
+
+  /* ---- Awwwards-inspired Interactions ---- */
+  
+  /* Magnetic buttons */
+  .btn-magnetic {
+    transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  
+  /* Text reveal on hover */
+  .text-reveal-container {
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .text-reveal {
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1), 
+                opacity 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  
+  .text-reveal-container:hover .text-reveal {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  /* Image distortion effect */
+  .img-distort {
+    filter: blur(0);
+    transition: filter 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  
+  .img-distort:hover {
+    filter: blur(5px) brightness(1.1);
+  }
+  
+  /* Text scramble effect */
+  @keyframes scramble {
+    0%, 100% {
+      opacity: 1;
+      transform: translateY(0) rotate(0);
+    }
+    50% {
+      opacity: 0.8;
+      transform: translateY(2px) rotate(1deg);
+    }
+  }
+  
+  .text-scramble span {
+    display: inline-block;
+    animation: scramble 0.4s ease-in-out;
+    animation-play-state: paused;
+  }
+  
+  .text-scramble:hover span {
+    animation-play-state: running;
+  }
+  
+  /* Image skew hover */
+  .img-skew-hover {
+    transition: transform 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  
+  .img-skew-hover:hover {
+    transform: scale(1.05) skewX(-2deg);
+  }
+  
+  /* Smooth scrolling view transitions */
+  .scroll-transition {
+    transition: opacity 0.8s cubic-bezier(0.19, 1, 0.22, 1), 
+                transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  
+  /* Cursor effects */
+  .custom-cursor-target {
+    cursor: none;
+  }
+  
+  .custom-cursor {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+    position: fixed;
+    pointer-events: none;
+    mix-blend-mode: difference;
+    z-index: 9999;
+    transition: transform 0.2s ease-out, width 0.3s ease, height 0.3s ease;
+    transform: translate(-50%, -50%);
+  }
+  
+  .custom-cursor.hover {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Letter spacing hover effect */
+  .letter-spacing-hover {
+    transition: letter-spacing 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  
+  .letter-spacing-hover:hover {
+    letter-spacing: 0.2em;
+  }
+  
+  /* Mask hover effect */
+  .mask-hover {
+    clip-path: inset(0 0 0 0);
+    transition: clip-path 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  
+  .mask-hover:hover {
+    clip-path: inset(10% 10% 10% 10%);
+  }
+  
+  /* Scroll reveal with delay */
+  .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  
+  .reveal-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
